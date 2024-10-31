@@ -1,0 +1,28 @@
+[package]
+name = "walnet"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = true
+debug = false
+panic = "abort"
+overflow-checks = true
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"]}
+near-sdk = "5.0.1"
+near-contract-standards = "5.0.1"
+near-crypto = "0.21.1"
+borsh = "0.9.1"
+serde_json = "1.0"
+near-token = "0.2.0"
+[dependencies.getrandom]
+version = "0.2.12"
+features = ["js"]
